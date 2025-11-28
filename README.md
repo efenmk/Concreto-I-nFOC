@@ -9,10 +9,9 @@ Este repositório contém códigos em MATLAB desenvolvidos para resolver problem
 - MATLAB
 
 ## Como usar
-1. Abra o MATLAB
-2. Crie scripts para executar as funções
-3. Altere os parâmetros da seção no início do script
-4. Atenção com códigos que não são funções: geradores de diagramas e plotagem de seções transversais com a linha neutra
+1. Crie scripts para executar as funções
+2. Altere os parâmetros da seção no início do script
+3. Atenção com códigos que não são funções: geradores de diagramas e plotagem de seções transversais com a linha neutra
 
 ## Autor
 Antônio Garcia
