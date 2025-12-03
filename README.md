@@ -13,7 +13,7 @@ Este repositório contém códigos em MATLAB desenvolvidos para resolver problem
 
 ### nFOC
 1. Cálculo de esforços resultantes - esforcos.m
-2. Verificação de sações transversais - verificacao_nFOC.m
+2. Verificação de seções transversais - verificacao_nFOC.m
 3. Dimensionamento de seções transversais - dimensionamento_nFOC.m
 
 ### ELUi
