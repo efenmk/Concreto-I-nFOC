@@ -18,8 +18,8 @@ Este repositório contém códigos em MATLAB desenvolvidos para resolver problem
 
 ### ELUi
 4. Verificação de estabilidade de pilares - verificapilar.m
-5. 
-6. Compressão uniforme - 
+5. Trajetória de equilíbrio - 
+6. Compressão uniforme - compressao_uniforme.m
 7. Pilar padrão - 
 
 ## Linguagens e Ferramentas
