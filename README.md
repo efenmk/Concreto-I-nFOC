@@ -20,7 +20,9 @@ Este repositório contém códigos em MATLAB desenvolvidos para resolver problem
 4. Verificação de estabilidade de pilares - verificapilar.m
 5. Trajetória de equilíbrio - 
 6. Compressão uniforme - compressao_uniforme.m
-7. Pilar padrão - pilar_padrao.m
+7. Pilar padrão - 
+
+Os demais códigos são scripts que chamam as funções ou funções auxiliares (detalhadas adequadamente no pdf) para as funções principais.
 
 ## Linguagens e Ferramentas
 - MATLAB
