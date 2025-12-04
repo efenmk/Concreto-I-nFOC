@@ -18,7 +18,7 @@ Este repositório contém códigos em MATLAB desenvolvidos para resolver problem
 
 ### ELUi
 4. Verificação de estabilidade de pilares - verificapilar.m
-5. Trajetória de equilíbrio - 
+5. Trajetória de equilíbrio - plota_teq.m (muito lento)
 6. Compressão uniforme - compressao_uniforme.m
 7. Pilar padrão - pilar_padrao.m
 
