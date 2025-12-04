@@ -5,7 +5,7 @@ Este repositório contém códigos em MATLAB desenvolvidos para resolver problem
 ## Como usar?
 - Ler o documento Instruções.pdf, ele é a explicação mais prática e completa do uso dos códigos
 ### Instruções gerais:
-1. Crie scripts para executar as funções
+1. Crie scripts para executar as funções (as resoluções da P2 2025 e da questão 2 do exame 2024 estão disponíveis como exemplos)
 2. Altere os parâmetros da seção no início do script
 3. Atenção com códigos que não são funções: geradores de diagramas e plotagem de seções transversais com a linha neutra
 
@@ -18,7 +18,7 @@ Este repositório contém códigos em MATLAB desenvolvidos para resolver problem
 
 ### ELUi
 4. Verificação de estabilidade de pilares - verificapilar.m
-5. Trajetória de equilíbrio - plota_teq.m (muito lento)
+5. Trajetória de equilíbrio - plota_teq.m (é um pouco lento)
 6. Compressão uniforme - compressao_uniforme.m
 7. Pilar padrão - pilar_padrao.m
 
