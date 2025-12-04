@@ -56,5 +56,4 @@ function pilar_padrao(classe_concreto, classe_aco, gamac, gamas, diametro_aco, x
     else
         fprintf("O pilar não se equilibra.")
     end
-
 end

@@ -22,10 +22,18 @@ m = 1000;
 prec = 1e-10;
 
 %% Verificação diferenças finitas
-[verificacao, f, count, e0crit, kcrit] = verifica_pilar(classe_concreto, classe_aco, gamac, gamas, Nd, Md, diametro_aco, x, y, xs, ys, m, z, prec);
-resultado = [verificacao, f, count, e0crit, kcrit];
+[verificacao, f, count, yi, z_nodes, e0crit, kcrit] = verifica_pilar(classe_concreto, classe_aco, gamac, gamas, Nd, Md, diametro_aco, x, y, xs, ys, m, z, prec);
+resultado = [verificacao; f; count; e0crit; kcrit];
 disp(resultado);
 
-%% Verificação pilar padrão
+% Plotagem (esse trecho deve estar comentado quando se usar a função plota_teq)
 figure;
+plot(100*yi, z_nodes);
+xlabel('Deslocamento em cm');
+ylabel('Altura da Seção em m');
+title('Deformada do Pilar por diferenças finitas');
+grid on;
+
+figure;
+%% Verificação pilar padrão
 pilar_padrao(classe_concreto, classe_aco, gamac, gamas, diametro_aco, x, y, xs, ys, Nd, e, z);

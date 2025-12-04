@@ -1,5 +1,5 @@
 %% Verificação de estabilidade de um pilar pelo método de diferenças finitas | Concreto I | Antônio Garcia
-function [verificacao, f, j, e0crit, kcrit] = verifica_pilar(classe_concreto, classe_aco, gamac, gamas, Nd, Md, diametro_aco, x, y, xs, ys, m, z, prec)
+function [verificacao, f, j, yi, z_nodes, e0crit, kcrit] = verifica_pilar(classe_concreto, classe_aco, gamac, gamas, Nd, Md, diametro_aco, x, y, xs, ys, m, z, prec)
 
     [x, y, xs, ys] = translacao_cg(x, y, xs, ys); % Adequa as coordenadas ao CG
     
@@ -10,17 +10,19 @@ function [verificacao, f, j, e0crit, kcrit] = verifica_pilar(classe_concreto, cl
     f = 0; % valor inicialmente atribuído para a flecha
     e = Md/Nd; % excentricidade de Nd
 
-    maxiter = 1000;
+    maxiter = 100;
     j = 1;
 
     while j<maxiter
         yi = zeros(m,1);
-
         %% Passo 2
         Md = Nd*(e+f);
         [elu, ~, e0, k, ~] = verificacao_nFOC(classe_concreto, classe_aco, x, y, xs, ys, diametro_aco, gamac, gamas, Nd, -Md, 0);
+        e0crit = e0; % A cada iteração igualamos e0 e kappa da seção 1 à e0 e kappa críticos, que são por vezes solicitados em exercícios
+        kcrit = -k;
         if elu == 0
             verificacao = 0;
+            f = NaN;
             return;
         end
         
@@ -30,10 +32,9 @@ function [verificacao, f, j, e0crit, kcrit] = verifica_pilar(classe_concreto, cl
         yi(1,1) = curv*dL^2/2;
         Md = Nd*(e+f-yi(1));
         [elu, ~, e0, k, ~] = verificacao_nFOC(classe_concreto, classe_aco, x, y, xs, ys, diametro_aco, gamac, gamas, Nd, -Md, 0);
-        e0crit = e0; % A cada iteração igualamos e0 e kappa da seção 1 à e0 e kappa críticos, que são por vezes solicitados em exercícios
-        kcrit = -k;
         if elu == 0
             verificacao = 0;
+            f = NaN;
             return;
         end
 
@@ -44,6 +45,7 @@ function [verificacao, f, j, e0crit, kcrit] = verifica_pilar(classe_concreto, cl
         [elu, ~, e0, k, ~] = verificacao_nFOC(classe_concreto, classe_aco, x, y, xs, ys, diametro_aco, gamac, gamas, Nd, -Md, 0);
         if elu == 0
             verificacao = 0;
+            f = NaN;
             return;
         end
 
@@ -55,6 +57,7 @@ function [verificacao, f, j, e0crit, kcrit] = verifica_pilar(classe_concreto, cl
             [elu, ~, e0, k, ~] = verificacao_nFOC(classe_concreto, classe_aco, x, y, xs, ys, diametro_aco, gamac, gamas, Nd, -Md, 0);
             if elu == 0
                 verificacao = 0;
+                f = NaN;
                 return;
             end
             i = i+1;
@@ -62,13 +65,6 @@ function [verificacao, f, j, e0crit, kcrit] = verifica_pilar(classe_concreto, cl
 
         if abs(f-yi(m,1))<=prec
             verificacao = 1;
-            % Plotagem
-            figure;
-            plot(100*yi, z_nodes);
-            xlabel('Deslocamento em cm');
-            ylabel('Altura da Seção em m');
-            title('Deformada do Pilar por diferenças finitas');
-            grid on;
             return;
         else
             f = yi(m,1);
@@ -76,4 +72,5 @@ function [verificacao, f, j, e0crit, kcrit] = verifica_pilar(classe_concreto, cl
         end
     end
     verificacao = 0;  % não convergiu dentro do máximo de iterações
+    f = NaN;
 end

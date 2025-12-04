@@ -17,6 +17,6 @@ z = 2;
 
 % Algoritmo
 m = 100;
-prec = 1e-10;
+prec = 1e-5;
 
 plota_teq(classe_concreto, classe_aco, gamac, gamas, e, diametro_aco, x, y, xs, ys, m, z, prec);

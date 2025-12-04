@@ -4,7 +4,7 @@ function plota_teq(classe_concreto, classe_aco, gamac, gamas, e, diametro_aco, x
     [sigmacd, ~, ~, ~, fyd, ~] = parametros(classe_concreto, classe_aco, gamac, gamas);
     A_c = Ac(x, y);
     Ast = sum(pi * diametro_aco.^2 / 4);
-    Nmax = sigmacd*A_c+fyd*Ast;
+    Nmax = sigmacd*A_c + fyd*Ast;
 
     % Inicialização do algoritmo
     n_passos = 10;
@@ -15,17 +15,17 @@ function plota_teq(classe_concreto, classe_aco, gamac, gamas, e, diametro_aco, x
     N = 0;
     tol = 1e-10;
     cont = 1;
-
-    while deltaN >= tol
+    while deltaN/Nmax >= tol
         for i=2:n_passos
             cont = cont + 1;
-            N = N +deltaN;
+            N = N + deltaN;
             [verificacao, f, ~, ~, ~] = verifica_pilar(classe_concreto, classe_aco, gamac, gamas, N, e*N, diametro_aco, x, y, xs, ys, m, z, prec);
             if verificacao == true
                 Nd(cont) = N;
                 Md(cont) = N*(e+f);
                 Ncr = Nd(cont);
             else
+                fprintf("Aqui");
                 break
             end
         end
