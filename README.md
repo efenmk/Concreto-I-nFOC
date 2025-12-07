@@ -5,7 +5,7 @@ Este repositório contém códigos em MATLAB desenvolvidos para resolver problem
 ## Como usar?
 - Ler o documento Instruções.pdf, ele é a explicação mais prática e completa do uso dos códigos
 ### Instruções gerais:
-1. Crie scripts para executar as funções (as resoluções da P2 2025 e da questão 2 do exame 2024 estão disponíveis como exemplos)
+1. Crie scripts para executar as funções (as resoluções da P2 e do exame de 2025 estão disponíveis como exemplos)
 2. Altere os parâmetros da seção no início do script
 3. Atenção com códigos que não são funções: geradores de diagramas e plotagem de seções transversais com a linha neutra
 
